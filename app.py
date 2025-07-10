@@ -26,16 +26,16 @@ if st.button("Upload to GitHub"):
   csv = df.to_csv(index=False)
   content = base64.b64encode(csv.encode()).decode()
 
-url = "https://api.github.com/repos/jasnam1234/abcd/contents/data2.csv"
-headers = {"Authorization":f"token {st.secrets['github']['token']}"}
+  url = "https://api.github.com/repos/jasnam1234/abcd/contents/data2.csv"
+  headers = {"Authorization":f"token {st.secrets['github']['token']}"}
 
-payload = {
-  "message": "Add data.csv",
-  "content": content,
-  "branch": "main"
-}
-r = requests.put(url,headers=headers,json=payload)
-if r.status_code in [200,201]:
-  st.success("Data Uploaded!")
-else:
-  st.error("Failed to upload")
+  payload = {
+    "message": "Add data.csv",
+    "content": content,
+    "branch": "main"
+  }
+  r = requests.put(url,headers=headers,json=payload)
+  if r.status_code in [200,201]:
+    st.success("Data Uploaded!")
+  else:
+    st.error("Failed to upload")

@@ -27,7 +27,7 @@ if st.button("Upload to GitHub"):
   content = base64.b64encode(csv.encode()).decode()
 
 url = "https://api.github.com/repos/jasnam1234/abcd/contents/data2.csv"
-headers = ("Authorization":f"token {st.secrets['github']['token']}")
+headers = {"Authorization":f"token {st.secrets['github']['token']}"}
 
 payload = {
   "message": "Add data.csv",
